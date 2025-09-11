@@ -16,3 +16,17 @@ class User(models.Model):
     
     def __str__(self):
         return self.username
+
+class Group(models.Model):
+    id = models.AutoField(primary_key=True)
+    groupname = models.CharField(max_length=150,unique=True)
+    groupcode = models.CharField(max_length=150,unique=True)
+
+
+class Role(models.Model):
+    id = models.AutoField(primary_key=True)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="roles")
+    group = models.ForeignKey(Group,on_delete=models.CASCADE, related_name="roles")
+    
+

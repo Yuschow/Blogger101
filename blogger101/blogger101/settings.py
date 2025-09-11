@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'rest_framework',
+
     
 ]
 
@@ -89,8 +90,13 @@ DATABASES = {
     'default': {
         'ENGINE': env("DB_ENGINE"),
         'NAME': env("DB_NAME"),
+        'USER': env("DB_USER", default=""),
+        'PASSWORD': env("DB_PASSWORD", default=""),
+        'HOST': env("DB_HOST", default=""),
+        'PORT': env("DB_PORT", default=""),
     }
 }
+
 
 
 # Password validation
