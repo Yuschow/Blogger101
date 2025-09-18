@@ -4,8 +4,8 @@ from .views import GroupAPI
 from .views import RoleAPI
 
 urlpatterns = [
-    path('user', UserAPI.as_view(), name='user_api'),
-    path('group', GroupAPI.as_view(), name='group_api'),
-    path('role', RoleAPI.as_view(), name='role_api'),
+    path('user/', UserAPI.as_view(), name='user_api'),
+    path('group/', GroupAPI.as_view(), name='group_api'),
+    path('role/', RoleAPI.as_view(), name='role_api'),
 
 ]

@@ -105,6 +105,8 @@ class RoleAPI(APIView):
         except Group.DoesNotExist:
             return Response({"error":"group not found"}, status=status.HTTP_404_NOT_FOUND)
         
+        if Role.objects.filter(user=user, group=group).exists():
+            return Response({"error": "Role already exists"}, status=status.HTTP_400_BAD_REQUEST)
         role = Role(user=user, group=group)
         role.save()
         
